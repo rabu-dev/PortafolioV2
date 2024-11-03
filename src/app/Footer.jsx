@@ -45,6 +45,21 @@ const Footer = () => {
           </a>
           <a
             className="flex items-center gap-2 text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+            href="/chatai"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              aria-hidden
+              src="https://nextjs.org/icons/window.svg"
+              alt="Window icon"
+              width={16}
+              height={16}
+            />
+           Chat AI
+          </a>
+          <a
+            className="flex items-center gap-2 text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
             href="https://github.com/rabu-dev"
             target="_blank"
             rel="noopener noreferrer"
