@@ -7,7 +7,7 @@ async function getGeminiResponse(message) {
   try {
     const API_KEY = "AIzaSyBL3rVkBQ5cYfoTjhwKLG056ZdzjeM1TF0"; // Use environment variable
     const response = await axios.post(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=${API_KEY}`,
       {
         contents: [
           {
