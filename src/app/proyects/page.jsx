@@ -16,7 +16,7 @@ const Prochects = () => {
         {
           name: 'RapidTickets',
           description: 'una web de ayuda a usuario',
-          link: 'http://localhost:3000/proyects/rapidtickets'
+          link: '/proyects/rapidtickets'
         },
         /*{
           name: '',

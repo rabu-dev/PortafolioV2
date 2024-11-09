@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 // Función para obtener la respuesta de Gemini
 async function getGeminiResponse(message) {
@@ -78,23 +80,23 @@ export default function ChatPage() {
   const formatMessage = (msg) => {
     const isUser = msg.role === 'user';
     return (
-      <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-4`}>
-        <div className={`max-w-[80%] p-3 rounded-lg ${
+      <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-5`}>
+        <div className={`max-w-[100%] p-4 rounded-lg ${
           isUser 
             ? 'bg-blue-500 text-white rounded-br-none' 
             : msg.role === 'error' 
               ? 'bg-red-100 text-red-700'
               : 'bg-gray-100 text-gray-800 rounded-bl-none'
         }`}>
-          {msg.content}
+          <ReactMarkdown children={msg.content} remarkPlugins={[remarkGfm]}></ReactMarkdown>
         </div>
       </div>
     );
   };
 
   return (
-  <div className="h-screen flex flex-col justify-center items-center bg-[#1a1d23] p-4">
-  <div className="w-full max-w-2xl flex flex-col h-[600px] bg-[#2f343a] rounded-lg shadow-md">
+  <div className="h-screen flex flex-col justify-center items-center bg-[#1a1d23] p-5 w-full">
+  <div className="w-full max-w-7xl flex flex-col h-[700px]  bg-[#2f343a] rounded-lg shadow-md w-full">
     <div className="flex-1 overflow-y-auto p-4">
       {chatHistory.map((msg, index) => (
         <div key={index}>
@@ -121,6 +123,12 @@ export default function ChatPage() {
         >
           {isLoading ? 'Enviando...' : 'Enviar'}
         </button>
+        
+
+  <button className="px-4 py-2 bg-[#8b0a1a] text-white rounded-lg hover:bg-[#b30000] transition-colors" onClick={() => window.location.href = "/"}>
+  Inicio
+</button>
+
       </div>
     </form>
   </div>
